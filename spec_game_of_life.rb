@@ -20,6 +20,9 @@ describe 'Game of life' do
       expect(subject.grid).to be_an Array
       subject.grid.each do |row|
         expect(row).to be_an(Array)
+        row.each do |col|
+          expect(col).to be_a(Cell)
+        end
       end
     end
 
@@ -32,5 +35,19 @@ describe 'Game of life' do
     it 'should create a new cell' do
       expect(subject).to be_a(Cell)
     end
+
+    it 'should respond to proper methods' do
+      expect(subject).to respond_to(:alive)
+      expect(subject).to respond_to(:x)
+      expect(subject).to respond_to(:y)
+    end
+
+    it 'should initialize properly' do
+      expect(subject.alive).to be(false)
+      expect(subject.x).to be(0)
+      expect(subject.y).to be(0)
+    end
+
+
   end
 end
