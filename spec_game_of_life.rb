@@ -3,6 +3,9 @@ require_relative 'game_of_life.rb'
 
 
 describe 'Game of life' do 
+  
+  let!(:world) { World.new }
+
   context 'World' do
     subject { World.new }
     
@@ -66,6 +69,11 @@ describe 'Game of life' do
       expect(subject.seeds).to be_a(Array)
     end
 
+    it 'should plant seeds properly' do
+      game = Game.new(world, [[1, 2], [0, 2]])
+      expect(world.grid[1][2]).to be_alive
+    end
+
   end
 
   context 'Rules' do 
@@ -75,7 +83,10 @@ describe 'Game of life' do
     context 'Rule 1 Any live cell with fewer than two live neighbors dies, as if caused by under-population.' do
       
       it 'should kill a live cell with 1 live neighbor' do
-
+        game = Game.new(world, [[1,0],[2,0]])
+        expectgame.tick!
+        expect(world.grid[1][0]).to be_dead
+        expect(world.grid[2][0]).to be_dead
       end
 
     end

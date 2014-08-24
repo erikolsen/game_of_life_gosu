@@ -4,6 +4,10 @@ class Game
   def initialize(world=World.new, seeds=[])
     @world = world
     @seeds = seeds
+
+    seeds.each do |seed|
+      world.grid[seed[0]][seed[1]].alive = true
+    end
   end
 
 end
@@ -11,7 +15,7 @@ end
 class World
   attr_accessor :rows, :cols, :grid
 
-  def initialize(rows=100, cols=100)
+  def initialize(rows=3, cols=3)
     @rows = rows
     @cols = cols
 
@@ -32,6 +36,10 @@ class Cell
     @alive = false
     @x = x
     @y = y
+  end
+
+  def alive?
+    alive
   end
 
 end
