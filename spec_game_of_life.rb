@@ -47,7 +47,66 @@ describe 'Game of life' do
       expect(subject.x).to be(0)
       expect(subject.y).to be(0)
     end
+  end
 
+  context 'Game' do 
+    subject { Game.new }
+    
+    it 'should create a new game object' do
+      expect(subject).to be_a(Game)
+    end
+
+    it 'should respond to proper methods' do
+      expect(subject).to respond_to(:world)
+      expect(subject).to respond_to(:seeds)
+    end 
+
+    it 'should initialize properly' do
+      expect(subject.world).to be_a(World)
+      expect(subject.seeds).to be_a(Array)
+    end
 
   end
+
+  context 'Rules' do 
+
+    let!(:game) { Game.new }
+
+    context 'Rule 1 Any live cell with fewer than two live neighbors dies, as if caused by under-population.' do
+      
+      it 'should kill a live cell with 1 live neighbor' do
+
+      end
+
+    end
+
+  end
+
+
+
+
+
+
 end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
