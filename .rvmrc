@@ -1,1 +1,1 @@
-rvm 2.1.2@game_of_life
+rvm use 2.0.0p451@game_of_life

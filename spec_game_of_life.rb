@@ -17,6 +17,8 @@ describe 'Game of life' do
       expect(subject).to respond_to(:cols)
       expect(subject).to respond_to(:grid)
       expect(subject).to respond_to(:live_neighbors_around_cell)
+      expect(subject).to respond_to(:randomly_populate)
+      expect(subject).to respond_to(:live_cells)
     end
 
     it 'should create proper grid on initialization' do
@@ -89,7 +91,14 @@ describe 'Game of life' do
       subject.grid[2][2].alive = true
       expect(subject.live_neighbors_around_cell(subject.grid[1][1]).count).to eq(8)
 
-    end    
+    end
+
+    it 'should randomly populate the world' do
+      expect(subject.live_cells.size).to eq(0)
+      subject.randomly_populate
+      expect(subject.live_cells.empty?).to eq(false)
+    end   
+
   end
 
   context 'Cell' do

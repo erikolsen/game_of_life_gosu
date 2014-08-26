@@ -109,6 +109,20 @@ class World
     return live_neighbors
   end
 
+  def live_cells
+    living_cells = []
+    cells.each do |cell|
+      living_cells << cell if cell.alive?
+    end
+    return living_cells
+  end
+
+  def randomly_populate
+    cells.each do |cell|
+      cell.alive = [true, false].sample
+    end
+  end
+
 end
 
 class Cell
