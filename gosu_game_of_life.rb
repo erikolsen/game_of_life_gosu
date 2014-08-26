@@ -38,11 +38,22 @@ class GameWindow < Gosu::Window
 									cell.x * @col_width + @col_width, cell.y * @row_height, @live_cell_color,
 									cell.x * @col_width + @col_width, cell.y * @row_height + @row_height, @live_cell_color,
 									cell.x * @col_width, cell.y * @row_height + @row_height, @live_cell_color)
+				#SHOW GRID
+				# draw_quad(cell.x * @col_width, cell.y * @row_height, @live_cell_color,
+				# 					cell.x * @col_width + (@col_width-1), cell.y * @row_height, @live_cell_color,
+				# 					cell.x * @col_width + (@col_width-1), cell.y * @row_height + (@row_height-1), @live_cell_color,
+				# 					cell.x * @col_width, cell.y * @row_height + (@row_height-1), @live_cell_color)
 			else
 				draw_quad(cell.x * @col_width, cell.y * @row_height, @dead_cell_color,
 									cell.x * @col_width + @col_width, cell.y * @row_height, @dead_cell_color,
 									cell.x * @col_width + @col_width, cell.y * @row_height + @row_height, @dead_cell_color,
 									cell.x * @col_width, cell.y * @row_height + @row_height, @dead_cell_color)
+
+				#SHOW GRID
+				# draw_quad(cell.x * @col_width, cell.y * @row_height, @dead_cell_color,
+				# 					cell.x * @col_width + (@col_width-1), cell.y * @row_height, @dead_cell_color,
+				# 					cell.x * @col_width + (@col_width-1), cell.y * @row_height + (@row_height-1), @dead_cell_color,
+				# 					cell.x * @col_width, cell.y * @row_height + (@row_height-1), @dead_cell_color)
 			end
 		end
 
